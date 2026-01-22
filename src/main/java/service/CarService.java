@@ -1,4 +1,4 @@
-package Service;
+package service;
 
 import db.DBConnectionProvider;
 import enums.CarStatus;
@@ -7,6 +7,7 @@ import model.Car;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 public class CarService {
     private final Connection conn = DBConnectionProvider.getInstance().getConnection();
 
@@ -31,14 +32,14 @@ public class CarService {
     }
 
     public void addCar(Car car) {
-        try{
+        try {
             PreparedStatement ps = conn.prepareStatement(
                     "INSERT INTO car (BREND, MODEL, YEAR, DAILY_RATE, STATUS) VALUES (?, ?, ?, ?, ?)");
-            ps.setString(1, car.getBrand());
-            ps.setString(2, car.getModel());
-            ps.setInt(3, car.getYear());
-            ps.setDouble(4, car.getDailyRate());
-            ps.setString(5, car.getStatus().name());
+            ps.setString(1, (String) car.getBrand());
+            ps.setString(2, (String) car.getModel());
+            ps.setInt(3, (Integer) car.getYear());
+            ps.setDouble(4, (Double) car.getDailyRate());
+            ps.setString(5, (String) car.getStatus());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

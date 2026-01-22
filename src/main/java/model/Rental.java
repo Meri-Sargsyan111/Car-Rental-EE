@@ -20,4 +20,3 @@ public class Rental {
     private RentalStatus status;
     private Customer customer;
 }
-

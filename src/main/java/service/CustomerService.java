@@ -1,4 +1,4 @@
-package Service;
+package service;
 
 import db.DBConnectionProvider;
 import model.Customer;
@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerServic {
+public class CustomerService {
 
     private final Connection conn = DBConnectionProvider.getInstance().getConnection();
 

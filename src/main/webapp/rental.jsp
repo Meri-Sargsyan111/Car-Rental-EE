@@ -1,13 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ADMIN
-  Date: 17.01.2026
-  Time: 21:47
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.Rental" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.carrentalee.model.Rental" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>Rentals</title>
@@ -36,37 +28,7 @@
 </form>
 
 
-<%!
-    private class Rental {
-        public Object getId() {
-            return null;
-        }
-
-        public Object getCarId() {
-            return null;
-        }
-
-        public Object getCustomerId() {
-            return null;
-        }
-
-        public Object getStartDate() {
-            return null;
-        }
-
-        public Object getEndDate() {
-            return null;
-        }
-
-        public Object getTotalCost() {
-            return null;
-        }
-
-        public Object getStatus() {
-            return null;
-        }
-    }
-%><%
+<%
     List<Rental> rentals = (List<Rental>) request.getAttribute("rentals");
     if (rentals != null)
         for (Rental r : rentals) {
@@ -96,4 +58,3 @@
 
 </body>
 </html>
-

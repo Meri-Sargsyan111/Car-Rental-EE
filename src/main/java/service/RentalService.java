@@ -1,4 +1,5 @@
-package Service;
+package service;
+
 import db.DBConnectionProvider;
 import model.Rental;
 
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class RentalService {
+
     private final Connection conn = DBConnectionProvider.getInstance().getConnection();
 
     public double calculateTotalCost(double dailyRate, LocalDate start, LocalDate end) {
@@ -29,7 +31,7 @@ public class RentalService {
             ps.setDate(3, Date.valueOf(r.getStartDate()));
             ps.setDate(4, Date.valueOf(r.getEndDate()));
             ps.setDouble(5, total);
-            ps.setString(6, r.getStatus().name());
+            ps.setString(6, String.valueOf(r.getStatus()));
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

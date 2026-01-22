@@ -1,10 +1,12 @@
-package Servlet;
+package servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Rental;
+import service.RentalService;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -12,11 +14,7 @@ import java.time.LocalDate;
 @WebServlet("/rentals")
 public class RentalServlet extends HttpServlet {
 
-    private final RentalService rentalService;
-
-    public RentalServlet() {
-        rentalService = new RentalService();
-    }
+    private final RentalService rentalService = new RentalService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,47 +34,5 @@ public class RentalServlet extends HttpServlet {
 
         rentalService.addRental(r, dailyRate);
         resp.sendRedirect("/rentals");
-    }
-
-    private class RentalService {
-        public void addRental(Rental r, double dailyRate) {
-
-        }
-    }
-
-    private class Rental {
-        private int carId;
-        private int customerId;
-        private LocalDate endDate;
-        private LocalDate startDate;
-
-        public void setCarId(int carId) {
-            this.carId = carId;
-        }
-
-        public int getCarId() {
-            return carId;
-        }
-
-        public void setCustomerId(int customerId) {
-
-            this.customerId = customerId;
-        }
-
-        public int getCustomerId() {
-            return customerId;
-        }
-
-        public void setEndDate(LocalDate endDate) {
-            this.endDate = endDate;
-        }
-
-        public void setStartDate(LocalDate startDate) {
-            this.startDate = startDate;
-        }
-
-        public LocalDate getStartDate() {
-            return startDate;
-        }
     }
 }

@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Customer;
+import service.CustomerService;
 
 import java.io.IOException;
 
@@ -33,15 +34,5 @@ public class CustomerServlet extends HttpServlet {
         customerService.addCustomer(c);
         resp.sendRedirect("/customers");
 
-    }
-
-    private class CustomerService {
-        public Object getAllCustomers() {
-            return null;
-        }
-
-        public void addCustomer(Customer c) {
-
-        }
     }
 }
